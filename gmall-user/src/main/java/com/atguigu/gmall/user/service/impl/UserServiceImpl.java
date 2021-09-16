@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
+
     @Autowired
     UserInfoMapper userInfoMapper;
+
     @Override
     public List<UserInfo> userList() {
-        List<UserInfo> userInfos = userInfoMapper.selectAll();
-        return userInfos;
+        return userInfoMapper.selectAllUserAndAddress();
     }
 
     @Override
