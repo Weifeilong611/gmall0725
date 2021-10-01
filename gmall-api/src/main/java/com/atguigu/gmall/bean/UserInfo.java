@@ -1,8 +1,10 @@
 package com.atguigu.gmall.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class UserInfo {
+public class UserInfo implements Serializable {
+
     private String id;
     private String loginName;
     private String nickName;
@@ -12,6 +14,7 @@ public class UserInfo {
     private String email;
     private String headImg;
     private String userLevel;
+    private List<UserAddress> userAddressList;
 
     public List<UserAddress> getUserAddressList() {
         return userAddressList;
@@ -20,8 +23,6 @@ public class UserInfo {
     public void setUserAddressList(List<UserAddress> userAddressList) {
         this.userAddressList = userAddressList;
     }
-
-    private List<UserAddress> userAddressList;
 
     public String getId() {
         return id;
@@ -95,15 +96,15 @@ public class UserInfo {
         this.userLevel = userLevel;
     }
 
-    public UserInfo(String id, String login_name, String nick_name, String passwd, String name, String phone_num, String email, String head_img, String user_level) {
-        this.id = id;
-        this.loginName = login_name;
-        this.nickName = nick_name;
-        this.passwd = passwd;
-        this.name = name;
-        this.phoneNum = phone_num;
-        this.email = email;
-        this.headImg = head_img;
-        this.userLevel = user_level;
-    }
+//    public UserInfo(String id, String login_name, String nick_name, String passwd, String name, String phone_num, String email, String head_img, String user_level) {
+//        this.id = id;
+//        this.loginName = login_name;
+//        this.nickName = nick_name;
+//        this.passwd = passwd;
+//        this.name = name;
+//        this.phoneNum = phone_num;
+//        this.email = email;
+//        this.headImg = head_img;
+//        this.userLevel = user_level;
+//    }
 }
