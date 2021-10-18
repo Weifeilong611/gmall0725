@@ -3,6 +3,7 @@ package com.atguigu.gmall.manage.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.atguigu.gmall.bean.BaseAttrInfo;
 import com.atguigu.gmall.bean.BaseSaleAttr;
+import com.atguigu.gmall.bean.SkuInfo;
 import com.atguigu.gmall.bean.SpuInfo;
 import com.atguigu.gmall.manage.util.GmallUploadUtil;
 import com.atguigu.gmall.service.SpuService;
@@ -57,4 +58,5 @@ public class SpuController {
         List<SpuInfo> spuInfos = spuService.getSpuList(catalog3Id);
         return spuInfos;
     }
+
 }

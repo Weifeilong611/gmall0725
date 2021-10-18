@@ -6,7 +6,9 @@ import com.atguigu.gmall.manage.mapper.*;
 import com.atguigu.gmall.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SpuServiceImpl implements SpuService {
@@ -63,5 +65,37 @@ public class SpuServiceImpl implements SpuService {
                 spuSaleAttrValueMapper.insertSelective(spuSaleAttrValue);
             }
         }
+    }
+
+    @Override
+    public List<SpuSaleAttr> spuSaleAttrList(String spuId) {
+        SpuSaleAttr spuSaleAttr = new SpuSaleAttr();
+        spuSaleAttr.setSpuId(spuId);
+        List<SpuSaleAttr> spuSaleAttrs = spuSaleAttrMapper.select(spuSaleAttr);
+        for (SpuSaleAttr saleAttr : spuSaleAttrs) {
+            SpuSaleAttrValue spuSaleAttrValue = new SpuSaleAttrValue();
+            spuSaleAttrValue.setSaleAttrId(saleAttr.getSaleAttrId());
+            spuSaleAttrValue.setSpuId(saleAttr.getSpuId());
+            List<SpuSaleAttrValue> spuSaleAttrValues = spuSaleAttrValueMapper.select(spuSaleAttrValue);
+            saleAttr.setSpuSaleAttrValueList(spuSaleAttrValues);
+        }
+        return spuSaleAttrs;
+    }
+
+    @Override
+    public List<SpuImage> spuImageList(String spuId) {
+        SpuImage spuImage = new SpuImage();
+        spuImage.setSpuId(spuId);
+        List<SpuImage> spuImages = spuImageMapper.select(spuImage);
+        return spuImages;
+    }
+
+    @Override
+    public List<SpuSaleAttr> spuSaleAttrListBySpuId(String spuId,String skuId) {
+        Map<String,Object> map=new HashMap<>();
+        map.put("spuId",spuId);
+        map.put("skuId",skuId);
+        List<SpuSaleAttr> spuSaleAttrs =spuSaleAttrMapper.selectSpuSaleAttrListBySpuId(map);
+        return spuSaleAttrs;
     }
 }
