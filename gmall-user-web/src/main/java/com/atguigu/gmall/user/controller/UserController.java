@@ -21,10 +21,5 @@ public class UserController {
         List<UserInfo> userInfos = userService.userList();
         return userInfos;
     }
-//    @RequestMapping("saveUser")
-//    @ResponseBody
-//    public int saveUser(){
-//        UserInfo userInfo = new UserInfo("1", "ww", "ss", "123", "ws", "1364322", "1231@qq.com", null, null);
-//        return userService.saveUser(userInfo);
-//    }
+
 }

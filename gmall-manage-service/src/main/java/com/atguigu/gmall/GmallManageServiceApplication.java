@@ -6,7 +6,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @MapperScan(basePackages ="com.atguigu.gmall.manage.mapper")
-//@ComponentScan("com.atguigu.gmall.util")
 public class GmallManageServiceApplication {
 
     public static void main(String[] args) {
