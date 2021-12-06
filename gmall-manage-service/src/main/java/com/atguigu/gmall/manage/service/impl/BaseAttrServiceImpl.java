@@ -10,6 +10,7 @@ import com.atguigu.gmall.service.BaseAttrService;
 import com.atguigu.gmall.service.ListService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.List;
@@ -40,11 +41,19 @@ public class BaseAttrServiceImpl implements BaseAttrService {
             String attrId = baseAttrInfo.getId();
             List<BaseAttrValue> attrValueList = baseAttrInfo.getAttrValueList();
             for (BaseAttrValue baseAttrValue : attrValueList) {
-                baseAttrValue.setAttrId(id);
+                baseAttrValue.setAttrId(attrId);
                 baseAttrValueMapper.insertSelective(baseAttrValue);
             }
         }else{
             //更新
+//            baseAttrInfoMapper.updateByPrimaryKeySelective(baseAttrInfo);
+//            Example example = new Example(BaseAttrValue.class);
+//            example.createCriteria().andEqualTo("attrId",id);
+//            List<BaseAttrValue> baseAttrValueExist = baseAttrValueMapper.selectByExample(example);
+//            List<BaseAttrValue> attrValueList = baseAttrInfo.getAttrValueList();
+//            for (BaseAttrValue baseAttrValue : attrValueList) {
+//
+//            }
         }
 
     }
